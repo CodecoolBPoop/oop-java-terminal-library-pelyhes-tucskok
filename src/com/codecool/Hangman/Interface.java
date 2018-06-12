@@ -2,11 +2,12 @@ import java.util.*;
 
 public class Interface {
 
-    public void printScreen(char[] guessedWord, int missedGuesses) {
+    public void printScreen(char[] guessedWord, int missedGuesses, ArrayList<String> missedLetters) {
         for (char ch: guessedWord) {
             System.out.print(ch + " ");
         }
         System.out.println("\t" + String.valueOf(missedGuesses) + "/7\n");
+	System.out.println(Arrays.deepToString(missedLetters.toArray()));
     }
 
     public char getCharacter() {

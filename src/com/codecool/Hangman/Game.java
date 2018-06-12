@@ -28,6 +28,7 @@ public class Game {
     public void startGame() {
         Interface inter = new Interface();
 
+	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
         char[] guessedWord = new char[wordArray.length];
         for (int i = 0; i < guessedWord.length; i++) {
@@ -35,14 +36,16 @@ public class Game {
         }
 
         int missedGuesses = 0;
-        while (missedGuesses <= 7) {
+        while (missedGuesses < 7) {
 
-            inter.printScreen(guessedWord, missedGuesses);
+            inter.printScreen(guessedWord, missedGuesses, missedLetters);
             char inputChar = inter.getCharacter();
 
             if (word.indexOf(inputChar) != -1) {
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
             } else {
+		String inputString = String.valueOf(inputChar);
+		missedLetters.add(inputString);
                 missedGuesses++;
             }
 
@@ -52,7 +55,7 @@ public class Game {
         }
 
         if (wordIsCompleted(guessedWord)) {
-            inter.printScreen(guessedWord, missedGuesses);
+            inter.printScreen(guessedWord, missedGuesses, missedLetters);
             System.out.println("You won!");
         } else {
             System.out.println("You lose!");

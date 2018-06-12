@@ -15,6 +15,12 @@ public class Interface {
         String input = scanner.nextLine();
         char[] inputArray = input.toCharArray();
         char inputChar = inputArray[0];
-        return inputChar;
+	char upperCaseChar = Character.toUpperCase(inputChar);
+        return upperCaseChar;
     }
+
+
+   public void printAlertMessage(String alert) {
+	System.out.println(alert);
+}	
 }

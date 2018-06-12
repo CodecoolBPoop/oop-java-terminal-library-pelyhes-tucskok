@@ -5,7 +5,7 @@ public class Game {
     private static String word;
 
     Game(String word) {
-        this.word = word;
+        this.word = word.toUpperCase();
     }
 
     public boolean wordIsCompleted(char[] guessedWord) {
@@ -45,8 +45,12 @@ public class Game {
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
             } else {
 		String inputString = String.valueOf(inputChar);
-		missedLetters.add(inputString);
-                missedGuesses++;
+		if(missedLetters.indexOf(inputString) != -1){
+                	inter.printAlertMessage("Already exists");
+		}else{
+			missedLetters.add(inputString);
+			missedGuesses++;
+}
             }
 
             if (wordIsCompleted(guessedWord)) {

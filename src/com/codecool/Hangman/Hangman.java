@@ -3,7 +3,7 @@ public class Hangman	{
 
 				// TODO Randomize word function
 
-				Game game = new Game("fasz");
+				Game game = new Game("süsü");
 				game.startGame();
 		}
 }

@@ -2,7 +2,11 @@ import java.util.*;
 
 public class Game {
 
-    private static String word = "fing";
+    private static String word;
+
+    Game(String word) {
+        this.word = word;
+    }
 
     public boolean wordIsCompleted(char[] guessedWord) {
         for (char ch: guessedWord) {
@@ -13,49 +17,42 @@ public class Game {
         return true;
     }
 
-    public void printScreen(char[] guessedWord, int missedGuesses) {
-        for (char ch: guessedWord) {
-            System.out.print(ch + " ");
+    public void putCharToGuessedWord(char[] wordArray, char[] guessedWord, char inputChar) {
+        for (int i = 0; i < wordArray.length; i++) {
+            if (wordArray[i] == inputChar) {
+              guessedWord[i] = inputChar;
+            }
         }
-        System.out.println("\t" + String.valueOf(missedGuesses) + "/7");
-        System.out.println();
     }
 
     public void startGame() {
+        Interface inter = new Interface();
 
         char[] wordArray = word.toCharArray();
         char[] guessedWord = new char[wordArray.length];
-        Scanner scanner = new Scanner(System.in);
-        String input = new String();
-
         for (int i = 0; i < guessedWord.length; i++) {
           guessedWord[i] = '_';
         }
 
         int missedGuesses = 0;
         while (missedGuesses <= 7) {
-            printScreen(guessedWord, missedGuesses);
 
-            input = scanner.nextLine();
-            char[] inputArray = input.toCharArray();
-            char inputChar = inputArray[0];
+            inter.printScreen(guessedWord, missedGuesses);
+            char inputChar = inter.getCharacter();
 
             if (word.indexOf(inputChar) != -1) {
-                for (int i = 0; i < wordArray.length; i++) {
-                  if (wordArray[i] == inputChar) {
-                    guessedWord[i] = inputChar;
-                  }
-                }
+                putCharToGuessedWord(wordArray, guessedWord, inputChar);
             } else {
-              missedGuesses++;
+                missedGuesses++;
             }
 
             if (wordIsCompleted(guessedWord)) {
-              break;
+                break;
             }
         }
 
         if (wordIsCompleted(guessedWord)) {
+            inter.printScreen(guessedWord, missedGuesses);
             System.out.println("You won!");
         } else {
             System.out.println("You lose!");

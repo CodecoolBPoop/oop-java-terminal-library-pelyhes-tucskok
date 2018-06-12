@@ -1,6 +1,9 @@
 public class Hangman	{
 		public static void main(String[] args) {
-				Game game = new Game();
+
+				// TODO Randomize word function
+
+				Game game = new Game("fasz");
 				game.startGame();
 		}
 }

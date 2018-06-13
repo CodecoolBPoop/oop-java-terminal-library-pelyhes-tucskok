@@ -3,7 +3,7 @@ package com.codecool.termlib;
 public class Terminal {
     /**
      * The beginning of control sequences.
-     */
+     */							
     private static final String CONTROL_CODE = "\033[";
     /**
      * Command for whole screen clearing.
@@ -30,6 +30,7 @@ public class Terminal {
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
     public void resetStyle() {
+	
     }
 
     /**
@@ -62,6 +63,9 @@ public class Terminal {
      * @param color The color to set.
      */
     public void setColor(Color color) {
+
+
+	command(color.getForegroundColor()+STYLE);
     }
 
     /**
@@ -72,7 +76,9 @@ public class Terminal {
      * @param color The background color to set.
      */
     public void setBgColor(Color color) {
-    }
+    	command(color.getBackgroundColor()+STYLE);
+
+	}
 
     /**
      * Make printed text underlined.

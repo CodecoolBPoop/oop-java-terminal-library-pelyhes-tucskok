@@ -29,9 +29,11 @@ public class Game {
     }
 
     public void startGame() {
+
         Interface inter = new Interface();
 	Terminal terminal = new Terminal();
-	terminal.clearScreen();
+	terminal.setColor(Color.RED);
+	terminal.setBgColor(Color.BLUE);
 
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
@@ -42,7 +44,7 @@ public class Game {
 
         int missedGuesses = 0;
         while (missedGuesses < 7) {
-
+	    terminal.clearScreen();
             inter.printScreen(guessedWord, missedGuesses, missedLetters);
             char inputChar = inter.getCharacter();
 

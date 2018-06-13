@@ -8,8 +8,8 @@ public class Interface {
         for (char ch: guessedWord) {
             System.out.print(ch + " ");
         }
-        System.out.println("\t" + String.valueOf(missedGuesses) + "/7\n");
-	System.out.println(Arrays.deepToString(missedLetters.toArray()));
+        System.out.println("\t" + String.valueOf(missedGuesses) + "/7\t" + Arrays.deepToString(missedLetters.toArray()));
+
     }
 
     public char getCharacter() {

@@ -1,12 +1,28 @@
 package com.codecool.termlib;
 
 public enum Color {
-    BLACK,
-    RED,
-    GREEN,
-    YELLOW,
-    BLUE,
-    MAGENTA,
-    CYAN,
-    WHITE;
+    BLACK("30", "40"),
+    RED("31", "41"),
+    GREEN("32", "42"),
+    YELLOW("33", "43"),
+    BLUE("34", "44"),
+    MAGENTA("35", "45"),
+    CYAN("36", "46"),
+    WHITE("37", "47");
+
+    private String foregroundColor;
+    private String backgroundColor;
+
+    Color(String foregroundColor, String backgroundColor) {
+        this.foregroundColor = foregroundColor;
+        this.backgroundColor = backgroundColor;
+    }
+
+    public String getForegroundColor() {
+        return this.foregroundColor;
+    }
+
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
 }

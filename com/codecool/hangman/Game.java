@@ -29,8 +29,11 @@ public class Game {
     }
 
     public void startGame() {
+
         Interface inter = new Interface();
 	Terminal terminal = new Terminal();
+	terminal.setColor(Color.BLACK);
+	terminal.setBgColor(Color.WHITE);
 	terminal.clearScreen();
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
@@ -41,7 +44,7 @@ public class Game {
 
         int missedGuesses = 0;
         while (missedGuesses < 7) {
-
+	    terminal.clearScreen();
             inter.printScreen(guessedWord, missedGuesses, missedLetters);
             char inputChar = inter.getCharacter();
 
@@ -50,7 +53,7 @@ public class Game {
 		    inter.printAlertMessage("Already exists");
 		}
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
-            } 
+            }
 	    else {
 		String inputString = String.valueOf(inputChar);
 		if(missedLetters.indexOf(inputString) != -1){

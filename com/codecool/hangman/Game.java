@@ -1,6 +1,6 @@
 package com.codecool.hangman;
-import com.codecool.termlib;
 
+import com.codecool.termlib.*;
 import java.util.*;
 
 public class Game {

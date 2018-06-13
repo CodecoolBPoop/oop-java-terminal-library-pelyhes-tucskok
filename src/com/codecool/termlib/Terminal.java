@@ -38,7 +38,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
-	System.out.println(CONTROL_CODE + CLEAR);
+	command(CLEAR);
     }
 
     /**
@@ -118,5 +118,6 @@ public class Terminal {
      * @param commandString The unique part of a command sequence.
      */
     private void command(String commandString) {
+	System.out.println(CONTROL_CODE+commandString);
     }
 }

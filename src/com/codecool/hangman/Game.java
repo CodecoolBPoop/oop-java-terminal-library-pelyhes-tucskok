@@ -1,4 +1,5 @@
 package com.codecool.hangman;
+import com.codecool.termlib;
 
 import java.util.*;
 
@@ -29,6 +30,8 @@ public class Game {
 
     public void startGame() {
         Interface inter = new Interface();
+	Terminal terminal = new Terminal();
+	terminal.clearScreen();
 
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();

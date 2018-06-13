@@ -34,12 +34,7 @@ public class Game {
 	Terminal terminal = new Terminal();
 	terminal.setColor(Color.BLACK);
 	terminal.setBgColor(Color.WHITE);
-
-  // TEST
-  Integer x = new Integer(100);
-  Integer y = new Integer(100);
-  terminal.moveTo(x, y);
-
+	terminal.clearScreen();
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
         char[] guessedWord = new char[wordArray.length];
@@ -54,16 +49,19 @@ public class Game {
             char inputChar = inter.getCharacter();
 
             if (word.indexOf(inputChar) != -1) {
+		if (new String(guessedWord).indexOf(inputChar) != -1) {
+		    inter.printAlertMessage("Already exists");
+		}
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
-            } else {
-
-            		String inputString = String.valueOf(inputChar);
-            		if(missedLetters.indexOf(inputString) != -1){
-                            	inter.printAlertMessage("Already exists");
-            		}else{
-            			missedLetters.add(inputString);
-            			missedGuesses++;
-              }
+            }
+	    else {
+		String inputString = String.valueOf(inputChar);
+		if(missedLetters.indexOf(inputString) != -1){
+                	inter.printAlertMessage("Already exists");
+		}else{
+			missedLetters.add(inputString);
+			missedGuesses++;
+		}			
             }
 
             if (wordIsCompleted(guessedWord)) {
@@ -75,6 +73,7 @@ public class Game {
             inter.printScreen(guessedWord, missedGuesses, missedLetters);
             System.out.println("You won!");
         } else {
+	    inter.printGallows7();
             System.out.println("You lose!");
         }
 

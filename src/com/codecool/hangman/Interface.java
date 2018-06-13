@@ -1,3 +1,5 @@
+package com.codecool.hangman;
+
 import java.util.*;
 
 public class Interface {
@@ -22,5 +24,5 @@ public class Interface {
 
    public void printAlertMessage(String alert) {
 	System.out.println(alert);
-}	
+}
 }

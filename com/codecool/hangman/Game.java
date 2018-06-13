@@ -32,7 +32,6 @@ public class Game {
         Interface inter = new Interface();
 	Terminal terminal = new Terminal();
 	terminal.clearScreen();
-
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
         char[] guessedWord = new char[wordArray.length];
@@ -47,15 +46,19 @@ public class Game {
             char inputChar = inter.getCharacter();
 
             if (word.indexOf(inputChar) != -1) {
+		if (new String(guessedWord).indexOf(inputChar) != -1) {
+		    inter.printAlertMessage("Already exists");
+		}
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
-            } else {
+            } 
+	    else {
 		String inputString = String.valueOf(inputChar);
 		if(missedLetters.indexOf(inputString) != -1){
                 	inter.printAlertMessage("Already exists");
 		}else{
 			missedLetters.add(inputString);
 			missedGuesses++;
-}
+		}			
             }
 
             if (wordIsCompleted(guessedWord)) {
@@ -67,6 +70,7 @@ public class Game {
             inter.printScreen(guessedWord, missedGuesses, missedLetters);
             System.out.println("You won!");
         } else {
+	    inter.printGallows7();
             System.out.println("You lose!");
         }
 

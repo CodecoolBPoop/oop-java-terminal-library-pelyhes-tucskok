@@ -16,7 +16,9 @@ public class Hangman	{
 			
 		   char number = 'x';
 		   while (new String(menuPoints).indexOf(number) == -1) { 		
-			terminal.clearScreen();	
+			terminal.setColor(Color.BLACK);
+      			terminal.setBgColor(Color.WHITE);			
+			terminal.clearScreen();
 			inter.printLogo();		
 			System.out.println(menuText);
 			number = scanner.next().charAt(0);

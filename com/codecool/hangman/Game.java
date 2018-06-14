@@ -100,7 +100,9 @@ public class Game {
 
     public void youWon(char[] guessedWord, int missedGuesses, ArrayList missedLetters) {
         inter.printScreen(guessedWord, missedGuesses, missedLetters);
+	terminal.setBgColor(Color.GREEN);
 	terminal.clearScreen();
+	terminal.setColor(Color.WHITE);
         inter.youWonLogo();
 
         String name = inter.getName();
@@ -111,7 +113,9 @@ public class Game {
     }
 
     public void youLose(int missedGuesses) {
+	terminal.setBgColor(Color.RED);
 	terminal.clearScreen();
+	terminal.setColor(Color.WHITE);
         inter.youLoseLogo();
         inter.printMessage("The word was: " + word);
 	inter.playAgain();

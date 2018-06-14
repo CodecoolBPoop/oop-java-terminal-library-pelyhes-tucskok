@@ -90,7 +90,7 @@ public class Game {
 	else {
 	    inter.printGallows7();
             inter.printMessage("You lose!");
-	    inter.printHighScore();
+	    
         }
 	inter.printMessage("Your final score is " + calculateFinalScore(missedGuesses));
     }

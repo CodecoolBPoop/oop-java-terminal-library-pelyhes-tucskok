@@ -65,11 +65,19 @@ public class Interface {
 	FileHandler fileHandler = new FileHandler();
 	String highScore = fileHandler.sortHighScore();
 	StringTokenizer tokenizer = new StringTokenizer(highScore, ",");
-
+	printScoreLogo();
 	while(tokenizer.hasMoreTokens()) {
 		System.out.println(tokenizer.nextToken());
 	}
     }
+
+    public void goBackToMenu(String message) {
+	Scanner scanner = new Scanner(System.in);
+	Hangman hangman = new Hangman();		
+	System.out.println(message);
+        String name = scanner.nextLine();
+	hangman.menu();
+	}
 
     public void printLogo() {
 	System.out.println(" _ ");		 	                                           
@@ -81,6 +89,17 @@ public class Interface {
 	System.out.println("		    __/ |");
 	System.out.println("		   |___/ ");
 	}
+
+    public void printScoreLogo() {
+	 System.out.println(" _     _       _ ");                             
+ 	 System.out.println("| |   (_)     | | ");                            
+	 System.out.println("| |__  _  __ _| |__    ___  ___ ___  _ __ ___ ");
+	 System.out.println("| '_ \\| |/ _` | '_ \\  / __|/ __/ _ \\| '__/ _ \\");
+	 System.out.println("| | | | | (_| | | | | \\__ \\ (_| (_) | | |  __/");
+	 System.out.println("|_| |_|_|\\__, |_| |_| |___/\\___\\___/|_|  \\___|");
+	 System.out.println("	  __/ |      ");                         
+	 System.out.println("	 |___/      ");                          
+	    }
 
     public void printGallows() {
 	System.out.println("   	   ____");

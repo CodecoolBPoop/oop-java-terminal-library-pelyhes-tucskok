@@ -7,13 +7,16 @@ public class Hangman	{
 		private static final String menuText = "Menu\n1.Single Mode\n2.Multi\n3.High score\n4.Exit game\n\nEnter your choice: ";
 		private static final char[] menuPoints = {'1','2','3','4'};
 		private static Terminal terminal = new Terminal();
+		private static Interface inter = new Interface();
 
 		public static void menu() {
 		   Scanner scanner = new Scanner(System.in);
+		   
 			
 		   char number = 'x';
 		   while (new String(menuPoints).indexOf(number) == -1) { 		
-			terminal.clearScreen();			
+			terminal.clearScreen();	
+			inter.printLogo();		
 			System.out.println(menuText);
 			number = scanner.next().charAt(0);
 		   }
@@ -26,7 +29,9 @@ public class Hangman	{
 				startMultiMode();
 				break;
 			case '3':
-				//showHighScore();
+				terminal.clearScreen();	
+				inter.printHighScore();
+				inter.goBackToMenu("Press any button to go back!");
 				break;
 			case '4':
 				break;

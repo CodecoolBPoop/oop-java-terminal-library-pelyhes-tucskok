@@ -108,6 +108,29 @@ public class Interface {
 	 System.out.println("	 |___/      ");                          
 	    }
 
+    public void youWonLogo() {
+	System.out.println("	                                 _       __  ");
+	System.out.println("                                        | |   _  \\ \\ ");
+	System.out.println(" _   _  ___  _   _  __      _____  _ __ | |  (_)  | |");
+	System.out.println("| | | |/ _ \\| | | | \\ \\ /\\ / / _ \\| '_ \\| |       | |");
+	System.out.println("| |_| | (_) | |_| |  \\ V  V / (_) | | | |_|   _   | |");
+	System.out.println(" \\__, |\\___/ \\__,_|   \\_/\\_/ \\___/|_| |_(_)  ( )  | |");
+	System.out.println("  __/ |                                      |/  /_/ ");
+	System.out.println(" |___/       ");
+	}
+
+
+    public void youLoseLogo() {
+System.out.println("                      _                _        _    __");
+System.out.println("                     | |              | |   _  ( )  / /");
+System.out.println("  _   _  ___  _   _  | | ___  ___  ___| |  (_) |/  | | ");
+System.out.println(" | | | |/ _ \\| | | | | |/ _ \\/ __|/ _ \\ |          | | ");
+System.out.println(" | |_| | (_) | |_| | | | (_) \\__ \\  __/_|   _      | | ");
+System.out.println("  \\__, |\\___/ \\__,_| |_|\\___/|___/\\___(_)  (_)     | | ");
+System.out.println("   __/ |                                            \\_\\");
+System.out.println("  |___/                          ");
+	}
+
     public void printGallows() {
 	System.out.println("   	   ____");
 	System.out.println("	  |    |");

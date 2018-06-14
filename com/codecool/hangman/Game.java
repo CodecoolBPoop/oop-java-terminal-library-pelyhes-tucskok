@@ -100,7 +100,8 @@ public class Game {
 
     public void youWon(char[] guessedWord, int missedGuesses, ArrayList missedLetters) {
         inter.printScreen(guessedWord, missedGuesses, missedLetters);
-        inter.printMessage("You won!");
+	terminal.clearScreen();
+        inter.youWonLogo();
 
         String name = inter.getName();
         String readFile = handleFile.getHighScoreFromFile();
@@ -109,8 +110,8 @@ public class Game {
     }
 
     public void youLose(int missedGuesses) {
-        inter.printGallows7();
-        inter.printMessage("You lose!");
+	terminal.clearScreen();
+        inter.youLoseLogo();
         inter.printMessage("The word was: " + word);
     }
 }

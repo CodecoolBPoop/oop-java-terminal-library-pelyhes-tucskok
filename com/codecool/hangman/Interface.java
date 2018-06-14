@@ -37,9 +37,27 @@ public class Interface {
         return upperCaseChar;
     }
 
+    public String getName() {
+	Scanner scanner = new Scanner(System.in);		
+	System.out.println("Your name: ");
+        String name = scanner.nextLine();
+	return name;
+    }
 
-    public void printAlertMessage(String alert) {
+
+    public void printMessage(String alert) {
 	System.out.println(alert);
+    }
+
+
+    public void printHighScore() {
+	FileHandler fileHandler = new FileHandler();
+	String highScore = fileHandler.sortHighScore();
+	StringTokenizer tokenizer = new StringTokenizer(highScore, ",");
+
+	while(tokenizer.hasMoreTokens()) {
+		System.out.println(tokenizer.nextToken());
+	}
     }
 
     public void printLogo() {

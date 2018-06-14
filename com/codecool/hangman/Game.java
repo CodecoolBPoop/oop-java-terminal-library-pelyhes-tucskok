@@ -107,11 +107,13 @@ public class Game {
         String readFile = handleFile.getHighScoreFromFile();
         handleFile.writeHighScoreToFile(readFile, name, calculateFinalScore(missedGuesses));
         inter.printMessage("Your final score is " + calculateFinalScore(missedGuesses));
+	inter.playAgain();
     }
 
     public void youLose(int missedGuesses) {
 	terminal.clearScreen();
         inter.youLoseLogo();
         inter.printMessage("The word was: " + word);
+	inter.playAgain();
     }
 }

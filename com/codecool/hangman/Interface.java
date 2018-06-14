@@ -84,7 +84,14 @@ public class Interface {
 	Hangman hangman = new Hangman();		
 	System.out.println("Would you like to play again? Press Y to restart, N to quit.");
         String name = scanner.nextLine();
-	hangman.menu();
+	if (name.toUpperCase().equals("Y")){ 
+		hangman.menu();
+	} else if (name.toUpperCase().equals("N")){
+		return;
+	} else {
+		System.out.println("Press Y or N!");
+		playAgain();		
+	}
 	}
 
     public String getFinalGuess() {

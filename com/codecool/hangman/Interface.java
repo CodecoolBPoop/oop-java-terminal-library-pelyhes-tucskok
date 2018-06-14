@@ -1,6 +1,7 @@
 package com.codecool.hangman;
 
 import java.util.*;
+import java.io.*;
 
 public class Interface {
 
@@ -40,6 +41,18 @@ public class Interface {
     public void printAlertMessage(String alert) {
 	System.out.println(alert);
     }
+
+    public static ArrayList readFromTxt(String fileName) throws FileNotFoundException{
+	File file = new File(fileName);
+	Scanner input = new Scanner(file);
+	ArrayList<String> list = new ArrayList<String>();
+	
+	while (input.hasNextLine()) {
+	   list.add(input.nextLine());
+	}
+	return list;
+	
+    } 
 
     public void printLogo() {
 	System.out.println(" _ ");		 	                                           

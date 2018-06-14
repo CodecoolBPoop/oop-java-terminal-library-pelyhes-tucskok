@@ -20,7 +20,7 @@ public class Hangman	{
 		   
 		   switch(number) {
 			case '1':
-				//startSingleMode();
+				startSingleMode();
 				break;
 			case '2':
 				startMultiMode();
@@ -31,6 +31,23 @@ public class Hangman	{
 			case '4':
 				break;
 		   }
+		}
+
+		public static void startSingleMode() {
+		  ArrayList words = new ArrayList();
+		  try {
+		  	words = Interface.readFromTxt("countries.txt");
+		  } catch (Exception e){
+		 	System.out.println("File not found!");		
+		  }	
+			
+		  Random randomGenerator = new Random();
+		  int index = randomGenerator.nextInt(words.size());
+		  String word = words.get(index).toString();
+
+		  Game game = new Game(word);
+		  game.startGame();
+		  
 		}
 
 		public static void startMultiMode() {

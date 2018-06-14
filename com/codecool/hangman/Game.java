@@ -20,6 +20,7 @@ public class Game {
         return true;
     }
 
+
     public void putCharToGuessedWord(char[] wordArray, char[] guessedWord, char inputChar) {
         for (int i = 0; i < wordArray.length; i++) {
             if (wordArray[i] == inputChar) {

@@ -61,15 +61,7 @@ public class FileHandler {
     public static String sortHighScore() {
 	String highScore = getHighScoreFromFile();
 	String[] values = highScore.split(",");
-	for (int i = 1; i < values.length; i++) {
-	    char firstChar = values[i - 1].charAt(0);
-	    char secondChar = values[i].charAt(0);
-	    if (Integer.parseInt(String.valueOf(firstChar)) < Integer.parseInt(String.valueOf(secondChar))) {
-		String temp =values[i - 1];
-		values[i - 1] = values[i];
-		values[i] = temp;
-	    }
-	}
+	Arrays.sort(values, Collections.reverseOrder());
 	String sortedHighScore = Arrays.toString(values).substring(1, Arrays.toString(values).length()-1);
         return " " + sortedHighScore;
     }

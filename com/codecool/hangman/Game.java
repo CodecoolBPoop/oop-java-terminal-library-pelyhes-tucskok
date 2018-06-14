@@ -38,7 +38,9 @@ public class Game {
 	FileHandler handleFile = new FileHandler();
         Interface inter = new Interface();
 	Terminal terminal = new Terminal();
-	//terminal.clearScreen();
+	terminal.setColor(Color.BLACK);
+	terminal.setBgColor(Color.WHITE);
+	terminal.clearScreen();
 	ArrayList<String> missedLetters = new ArrayList<String>();
         char[] wordArray = word.toCharArray();
         char[] guessedWord = new char[wordArray.length];
@@ -50,7 +52,7 @@ public class Game {
 
         int missedGuesses = 0;
         while (missedGuesses < 7) {
-
+	    terminal.clearScreen();
             inter.printScreen(guessedWord, missedGuesses, missedLetters);
             char inputChar = inter.getCharacter();
 		
@@ -60,7 +62,7 @@ public class Game {
 		    inter.printMessage("Already exists");
 		}
                 putCharToGuessedWord(wordArray, guessedWord, inputChar);
-            } 
+            }
 	    else {
 		String inputString = String.valueOf(inputChar);
 		if(missedLetters.indexOf(inputString) != -1){

@@ -30,6 +30,7 @@ public class Terminal {
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
     public void resetStyle() {
+          command("0" + STYLE);
     }
 
     /**
@@ -38,7 +39,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
-	command(CLEAR);
+	       command(CLEAR);
     }
 
     /**
@@ -51,7 +52,6 @@ public class Terminal {
      * @param y Row number.
      */
     public void moveTo(Integer x, Integer y) {
-	
     }
 
     /**
@@ -62,6 +62,7 @@ public class Terminal {
      * @param color The color to set.
      */
     public void setColor(Color color) {
+	        command(color.getForegroundColor()+STYLE);
     }
 
     /**
@@ -72,7 +73,8 @@ public class Terminal {
      * @param color The background color to set.
      */
     public void setBgColor(Color color) {
-    }
+          command(color.getBackgroundColor()+STYLE);
+	  }
 
     /**
      * Make printed text underlined.
@@ -82,6 +84,7 @@ public class Terminal {
      * well.
      */
     public void setUnderline() {
+          command("4" + STYLE);
     }
 
     /**

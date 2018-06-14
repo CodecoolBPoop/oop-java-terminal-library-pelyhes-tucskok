@@ -1,1 +1,1 @@
-100 száz,500 ötszáz,600 Zoli,700 Anita,700 hétszáz
+700 e,400 emil,100 száz,500 ötszáz,600 Zoli,700 Anita,700 hétszáz

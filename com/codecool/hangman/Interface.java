@@ -29,13 +29,22 @@ public class Interface {
     }
 
     public char getCharacter() {
+	String input = "";
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        char[] inputArray = input.toCharArray();
-        char inputChar = inputArray[0];
-	char upperCaseChar = Character.toUpperCase(inputChar);
-        return upperCaseChar;
-    }
+	while (true){
+	input = scanner.nextLine();
+	try {
+        	char[] inputArray = input.toCharArray();
+		char inputChar = inputArray[0];
+		char upperCaseChar = Character.toUpperCase(inputChar);
+		return upperCaseChar;
+	} catch (ArrayIndexOutOfBoundsException e) {
+	continue;
+	
+	}}
+	
+    	}
+
 
     public String getName() {
 	Scanner scanner = new Scanner(System.in);

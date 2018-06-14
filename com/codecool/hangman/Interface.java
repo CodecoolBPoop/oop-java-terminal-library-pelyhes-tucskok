@@ -79,6 +79,14 @@ public class Interface {
 	hangman.menu();
 	}
 
+    public void playAgain() {
+	Scanner scanner = new Scanner(System.in);
+	Hangman hangman = new Hangman();		
+	System.out.println("Would you like to play again? Press Y to restart, N to quit.");
+        String name = scanner.nextLine();
+	hangman.menu();
+	}
+
     public String getFinalGuess() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What is your final guess? ");

@@ -74,11 +74,34 @@ public class Interface {
 	FileHandler fileHandler = new FileHandler();
 	String highScore = fileHandler.sortHighScore();
 	StringTokenizer tokenizer = new StringTokenizer(highScore, ",");
-
+	printScoreLogo();
 	while(tokenizer.hasMoreTokens()) {
 		System.out.println(tokenizer.nextToken());
 	}
     }
+
+    public void goBackToMenu(String message) {
+	Scanner scanner = new Scanner(System.in);
+	Hangman hangman = new Hangman();		
+	System.out.println(message);
+        String name = scanner.nextLine();
+	hangman.menu();
+	}
+
+    public void playAgain() {
+	Scanner scanner = new Scanner(System.in);
+	Hangman hangman = new Hangman();		
+	System.out.println("Would you like to play again? Press Y to restart, N to quit.");
+        String name = scanner.nextLine();
+	if (name.toUpperCase().equals("Y")){ 
+		hangman.menu();
+	} else if (name.toUpperCase().equals("N")){
+		return;
+	} else {
+		System.out.println("Press Y or N!");
+		playAgain();		
+	}
+	}
 
     public String getFinalGuess() {
         Scanner scanner = new Scanner(System.in);
@@ -96,6 +119,40 @@ public class Interface {
 	System.out.println("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 	System.out.println("		    __/ |");
 	System.out.println("		   |___/ ");
+	}
+
+    public void printScoreLogo() {
+	 System.out.println(" _     _       _ ");                             
+ 	 System.out.println("| |   (_)     | | ");                            
+	 System.out.println("| |__  _  __ _| |__    ___  ___ ___  _ __ ___ ");
+	 System.out.println("| '_ \\| |/ _` | '_ \\  / __|/ __/ _ \\| '__/ _ \\");
+	 System.out.println("| | | | | (_| | | | | \\__ \\ (_| (_) | | |  __/");
+	 System.out.println("|_| |_|_|\\__, |_| |_| |___/\\___\\___/|_|  \\___|");
+	 System.out.println("	  __/ |      ");                         
+	 System.out.println("	 |___/      ");                          
+	    }
+
+    public void youWonLogo() {
+	System.out.println("	                                 _       __  ");
+	System.out.println("                                        | |   _  \\ \\ ");
+	System.out.println(" _   _  ___  _   _  __      _____  _ __ | |  (_)  | |");
+	System.out.println("| | | |/ _ \\| | | | \\ \\ /\\ / / _ \\| '_ \\| |       | |");
+	System.out.println("| |_| | (_) | |_| |  \\ V  V / (_) | | | |_|   _   | |");
+	System.out.println(" \\__, |\\___/ \\__,_|   \\_/\\_/ \\___/|_| |_(_)  ( )  | |");
+	System.out.println("  __/ |                                      |/  /_/ ");
+	System.out.println(" |___/       ");
+	}
+
+
+    public void youLoseLogo() {
+System.out.println("                      _                _        _    __");
+System.out.println("                     | |              | |   _  ( )  / /");
+System.out.println("  _   _  ___  _   _  | | ___  ___  ___| |  (_) |/  | | ");
+System.out.println(" | | | |/ _ \\| | | | | |/ _ \\/ __|/ _ \\ |          | | ");
+System.out.println(" | |_| | (_) | |_| | | | (_) \\__ \\  __/_|   _      | | ");
+System.out.println("  \\__, |\\___/ \\__,_| |_|\\___/|___/\\___(_)  (_)     | | ");
+System.out.println("   __/ |                                            \\_\\");
+System.out.println("  |___/                          ");
 	}
 
     public void printGallows() {
